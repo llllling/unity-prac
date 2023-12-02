@@ -27,10 +27,20 @@
 * MonoBehaviour 클래스를 상속받는 클래스들 유니티에서 컴포넌트로 사용 가능
 * Update() : update 메서드는 한 프레임에 한 번, 매 프레임마다 반복 실행됨. => 60FPS이면 1초에 60번 실행됨.
 * gameObject: gameObject 변수는 컴포넌트들의 기반 클래스인 MonoBehaviour에서 제공하는 GameObject 타입의 변수, 컴포넌트 입장에서 자신이 추가된 게임 오브젝트를 가리키는 변수
-* GetComponent<>() : 자신의 게임 오브젝트에서 제네릭 부분에 입력한 타입의 컴포넌트를 찾아오는 메서드
+* GetComponent<~>() : 자신의 게임 오브젝트에서 제네릭 부분에 입력한 타입의 컴포넌트를 찾아오는 메서드
 * Input.GetAxios(string axisName) : 어떤 축에 대한 입력값을 숫자로 반환하는 메서드(https://www.notion.so/Input-GetAxios-0f3988aa25374898bd16e3a724b10ccc)
 
 - transform : Transform 타입의 변수, 자신의 게임 오브젝트의 transform 컴포넌트로 바로 접근하는 변수.
+
+* FindObjectOfType<~>() : 씬에 존재하는 모든 오브젝트를 검색해서 원하는 타입의 오브젝트를 찾아냄.
+  - 처리비용이 크기 때문에 start() 메서드처럼 초기에 한두 번 실행되는 메서드에서만 사용해야 함.
+* Time.deltaTime : Update() 실행 사이의 시간 간격을 알기 위한 내장 변수
+  - 1초에 60프레임의 속도로 화면을 갱신하는 컴퓨터에서는 1/60의 값, 마찬가지로 1초에 120프레임의 속도를 가진 컴퓨터이면 1/120의 값을 가짐
+* Instantiate() : 게임 도중에 실시간으로 오브젝트를 생성할 때(즉, 복제) 해당 메서드 사용.
+  ```
+    Instantiate(원본, 위치, 회전)
+  ```
+* transform.LookAt(targetTransform) : 입력으로 다른 게임 오브젝트의 트랜스폼을 받는다. 입력받은 트랜스폼의 게임 오브젝트를 바라보도록 자신의 트랜스폼 회전을 변경함.
 
 #### 기타
 
