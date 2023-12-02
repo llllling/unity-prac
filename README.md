@@ -19,7 +19,7 @@
 
 * <span style='background-color: #fcba03; color: black;'>리지드바디의 제약을 사용하면 힘이나 충돌 등 물리적인 상호작용으로 위치나 회전이 변경되는 것을 막을 수 있다. 그러나 트랜스폼 컴포넌트의 위치나 회전에 새로운 값을 할당하여 위치나 회전을 변경하는 것을 막을 수는 없다.</span>
 * 충돌 이벤트 메서드[https://www.notion.so/661a5ab72b7b4ed7a93226bfb9c815c3]
-* 게임 월드와 UI를 별개의 공간으로 다루는 경우가 많았음 => 게임 월드(씬)에는 플레이어나 몬스터 등의 게임 오브젝트가 구성되고, 그것에 대한 정보를 표시하는 UI는 게임 오브젝트가 아닌 별개의 존재로 별개의 공간에서 다루는 경우가 많았다 => **유니티는 UI요소를 게임 월드 속의 게임 오브젝트 취급함**
+* 유니티의 UI 시스템(**UGUI**) : 게임 월드와 UI를 별개의 공간으로 다루는 경우가 많았음 => 게임 월드(씬)에는 플레이어나 몬스터 등의 게임 오브젝트가 구성되고, 그것에 대한 정보를 표시하는 UI는 게임 오브젝트가 아닌 별개의 존재로 별개의 공간에서 다루는 경우가 많았다 => **유니티는 UI요소를 게임 월드 속의 게임 오브젝트 취급함**
 
 #### 스크립트
 
@@ -54,6 +54,14 @@
     Instantiate(원본, 위치, 회전)
   ```
 * transform.LookAt(targetTransform) : 입력으로 다른 게임 오브젝트의 트랜스폼을 받는다. 입력받은 트랜스폼의 게임 오브젝트를 바라보도록 자신의 트랜스폼 회전을 변경함.
+* using UnityEngine.UI : 유니티 UI 시스템과 관련된 코드 가져옴.
+  using UnityEngine.SceneManagement : 씬 관리자(SceneManager) 등이 포함된 씬 관리 관련 코드를 가져옴.
+* SceneManager.LoadScene("SampleScene") : 실행되면 직전까지의 씬을 파괴하고, 씬을 다시 로드함. 이것은 게임을 재시작하는 효과
+  - SceneManager.LoadScene() : 해당 메서드로 로드할 씬은 빌드 설정의 빌드 목록에 등록되어 있어야 한다. 유니티 프로젝트를 생성할 때 자동 생성되는 SampleScene씬은 빌드 목록에 자동으로 등록되어 있으므로 따로 빌드 목록에 추가할 필요 없음.
+    - 빌드 설정창과 빌드 목록 : 유니티 상단 메뉴의 File > Build Settings..으로 확인할 수 있음.
+  * 씬 이름 이외에 빌드 순번을 사용해 씬 로드 가능. => SceneManager.LoadScene(0);
+* PlayerPrefs[https://www.notion.so/PlayerPrefs-298998b10a08417b8ac6be28ad38e592]
+* Text vs TextMeshProUGUI vs TextMeshPro : https://www.notion.so/Text-vs-TextMeshProUGUI-vs-TextMeshPro-81b0b32b5dc943bc9e4163ffd9d77a8d
 
 #### 기타
 
