@@ -62,6 +62,7 @@
   * 씬 이름 이외에 빌드 순번을 사용해 씬 로드 가능. => SceneManager.LoadScene(0);
 * PlayerPrefs[https://www.notion.so/PlayerPrefs-298998b10a08417b8ac6be28ad38e592]
 * Text vs TextMeshProUGUI vs TextMeshPro : https://www.notion.so/Text-vs-TextMeshProUGUI-vs-TextMeshPro-81b0b32b5dc943bc9e4163ffd9d77a8d
+* Vector3 연산(벡터 정규화, 크기,  내적, 외적) : https://www.notion.so/Vector3-d88974bc10ae4f05ab2910d00087bd29
 
 #### 기타
 
