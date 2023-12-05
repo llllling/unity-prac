@@ -70,10 +70,25 @@
 
 #### 기타
 
-- 오브젝트 복사 : Ctrl + D
+- **<span style='background-color: #fcba03; color: black; font-size: 15px;'>플레이 모드에서 수정한 사항은 저장이 안된다 !!!!! 필요한 수정을 할 경우 반드시 플레이 모드를 해제하고 하라!!!!</span>**
+
+* 오브젝트 복사 : Ctrl + D
 
 ### Move 오브젝트의 이동과 회전 연습을 하면서 배운 것들
 
 #### 개념적
 
 - 유니티 공간[https://www.notion.so/f69c850d440a42849ec8d3ec541c471b]
+
+#### 스크립트
+
+- Translate(vector3) : Transform 타입이 제공하는 평행이동을 위한 메서드
+  - 기본 지역공간을 기준으로 이루어짐
+  - 전역 공간을 기준으로 변경하고 싶으면 두번째 인자로 Space.World 값을 주면 됨.
+
+* Rotate(vector3) : Transform 타입이 제공하는 현재 회전 상태에서 입력된 회전만큼 게임 오브젝트를 더 회전시키는 메서드
+
+  - 지역 공간 기준
+  - 전역 공간을 주고싶으면 위 Translate 메서드 처럼 두번째 인자값 주면 됨.
+
+* 벡터의 속기[https://www.notion.so/c681fba458f34b7ca81720ff961dd1f8]
