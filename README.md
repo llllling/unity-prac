@@ -92,3 +92,4 @@
   - 전역 공간을 주고싶으면 위 Translate 메서드 처럼 두번째 인자값 주면 됨.
 
 * 벡터의 속기[https://www.notion.so/c681fba458f34b7ca81720ff961dd1f8]
+* Transform 타입에서 제공하는 방향벡터를 즉시 접근할 수 있는 변수들[https://www.notion.so/Transform-36094d657455497387383740b080f0cc]
