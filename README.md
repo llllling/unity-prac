@@ -92,7 +92,7 @@
   - 전역 공간을 주고싶으면 위 Translate 메서드 처럼 두번째 인자값 주면 됨.
 
 * 벡터의 속기[https://www.notion.so/c681fba458f34b7ca81720ff961dd1f8] : 자주 사용되는 Vector3 값을 즉시 생성할 수 있다.
-* Transform 타입이 제공하는 방향 관련 변수(transform.forward 등)[https://www.notion.so/Transform-transform-forward-36094d657455497387383740b080f0cc]로 게임 오브젝트의 방향을 쉽게 알 수 있다.
+* Transform 타입이 제공하는 방향 관련 변수(transform.forward 등)[https://www.notion.so/Transform-transform-forward-36094d657455497387383740b080f0cc] 로 게임 오브젝트의 방향을 쉽게 알 수 있다.
 
 ### 유니런(2D) 프로젝트
 
