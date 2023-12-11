@@ -2,7 +2,7 @@
 
 ## 프로젝트를 진행하면서 배운 것들 정리
 
-<details>
+<details open>
 <summary style="font-size: 16px;"> Dodge 프로젝트</summary>
 <div>
 
@@ -78,7 +78,7 @@
 </div>
 </details>
 
-<details>
+<details open>
 <summary style="font-size: 16px;"> Move 오브젝트의 이동과 회전 연습 </summary>
 <div>
 
@@ -102,7 +102,7 @@
 </div>
 </details>
 
-<details>
+<details open>
 <summary style="font-size: 16px;"> 유니런(2D) 프로젝트 </summary>
 <div>
 
