@@ -141,3 +141,5 @@
   - 이 시점에서 점프 속도가 아닌 낙하 속도를 절반으로 줄이는 문제가 발생할 수 있다.
   - 마우스 왼쪽 버튼을 너무 오래 누르고 있다가 캐릭터가 최고 높이에 도달한 후 낙하하기 시작한 시점에 손을 떼었다고 가정.
   - y 방향 속도 값이 0 이하일 때 속도를 절반으로 줄이면 상승 속도가 아니라 낙하 속도가 절반 줄어듬 그래서 해당 조건 추가
+* OnCollisionEnter2D : 2D콜라이더를 사용하는 경우 OnTriggerEnter()의 2D버전인 OnCollisionEnter2D 메서드를 사용해야함.
+* Collision 타입에서 충돌 지점의 정보를 담는 contacts라는 변수[https://www.notion.so/Collision-contacts-0feab03419f94d868bc88aed43c46fa9]

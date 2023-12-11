@@ -71,14 +71,25 @@ public class PlayerController : MonoBehaviour {
    }
 
    private void OnTriggerEnter2D(Collider2D other) {
-       // 트리거 콜라이더를 가진 장애물과의 충돌을 감지
+        // 트리거 콜라이더를 가진 장애물과의 충돌을 감지
+
+        if (other.tag != "Dead" || isDead) return;
+
+        Die();
    }
 
    private void OnCollisionEnter2D(Collision2D collision) {
-       // 바닥에 닿았음을 감지하는 처리
+        // 바닥에 닿았음을 감지하는 처리
+        //collision.contacts[0] : collision.contacts라는 배열 변수의 길이는 충돌 지점의 개수와 일치, 그 중에 첫번째 충돌 지점 정보
+        // normal 변수 : 충돌 표면의 방향(노멀 벡터)을 알려주는 변수
+        if (collision.contacts[0].normal.y <= 0.7f) return; 
+
+        isGrounded = true;
+        jumpCount = 0;
    }
 
    private void OnCollisionExit2D(Collision2D collision) {
-       // 바닥에서 벗어났음을 감지하는 처리
+        // 바닥에서 벗어났음을 감지하는 처리
+        isGrounded = false;
    }
 }
