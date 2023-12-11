@@ -2,9 +2,11 @@
 
 ## 프로젝트를 진행하면서 배운 것들 정리
 
-### Dodge 프로젝트
+<details>
+<summary style="font-size: 16px;"> Dodge 프로젝트</summary>
+<div>
 
-#### 개념적
+### 개념적
 
 - Plane의 크기와 유닛 단위 : Plane의 크기는 가로세로 10유닛(Unit), 유니티에서 1유닛은 Cube 한 변의 길이, 즉, cube 가로길이의 10배
 
@@ -24,7 +26,7 @@
   - 트랜스폼 컴포넌트의 rotation(회전)의 타입은 Vector3가 아닌 Quaternion임
   * 유니티 에디터의 인스펙터 창에서는 Quaternion이 비직관적이라서 rotation의 값읏 Vector3로 다루도록 배려한 것.
 
-#### 스크립트
+### 스크립트
 
 - **스크립트 생성 후 유니티 에디터에서 스크립트 파일명 변경하면 스크립트 파일에 선언된 클래스명 자동으로 갱신안되니까 똑같이 수동으로 바꿔줘야 함. 스크립트 파일명이랑 클래스명이 같아야 올바르게 작동**
 
@@ -68,19 +70,23 @@
 * Vector3 연산(벡터 정규화, 크기,  내적, 외적)[https://www.notion.so/Vector3-d88974bc10ae4f05ab2910d00087bd29]
 * Vector3 응용[https://www.notion.so/Vector3-69eb77db85a446f499ac0fb19e0d9e61]
 
-#### 기타
+### 기타
 
 - **<span style='background-color: #fcba03; color: black; font-size: 15px;'>플레이 모드에서 수정한 사항은 저장이 안된다 !!!!! 필요한 수정을 할 경우 반드시 플레이 모드를 해제하고 하라!!!!</span>**
 
 * 오브젝트 복사 : Ctrl + D
+</div>
+</details>
 
-### Move 오브젝트의 이동과 회전 연습
+<details>
+<summary style="font-size: 16px;"> Move 오브젝트의 이동과 회전 연습 </summary>
+<div>
 
-#### 개념적
+### 개념적
 
 - 유니티 공간[https://www.notion.so/f69c850d440a42849ec8d3ec541c471b]
 
-#### 스크립트
+### 스크립트
 
 - Translate(vector3) : Transform 타입이 제공하는 평행이동을 위한 메서드
   - 기본 지역공간을 기준으로 이루어짐
@@ -93,10 +99,14 @@
 
 * 벡터의 속기[https://www.notion.so/c681fba458f34b7ca81720ff961dd1f8] : 자주 사용되는 Vector3 값을 즉시 생성할 수 있다.
 * Transform 타입이 제공하는 방향 관련 변수(transform.forward 등)[https://www.notion.so/Transform-transform-forward-36094d657455497387383740b080f0cc] 로 게임 오브젝트의 방향을 쉽게 알 수 있다.
+</div>
+</details>
 
-### 유니런(2D) 프로젝트
+<details>
+<summary style="font-size: 16px;"> 유니런(2D) 프로젝트 </summary>
+<div>
 
-#### 개념적
+### 개념적
 
 - 2D 프로젝트의 주요 특징(이 설정들을 각각 따로 변경하거나, 유니티 프로젝트 모드를 2D 또는 3D로 하여 일괄 변경할 수 있다.)
   - 이미지 파일을 스프라이트 타입으로 임포트함
@@ -128,7 +138,7 @@
 * 애니메이션 만들기[https://www.notion.so/274cf1a0aac0410f9dcc7514303f6c46]
 * 애니메이터 컨트롤러와 애니메이터[https://www.notion.so/0c53a802528443538eb41ec3be164b11]
 
-#### 스크립트
+### 스크립트
 
 - Input.GetMouseButtonDown(int button) : 마우스 버튼을 누른 순간
   - 파라미터 : 0, 1, 2에 따라 마우스 왼쪽버튼, 오른쪽버튼, 휠버튼
@@ -143,3 +153,5 @@
   - y 방향 속도 값이 0 이하일 때 속도를 절반으로 줄이면 상승 속도가 아니라 낙하 속도가 절반 줄어듬 그래서 해당 조건 추가
 * OnCollisionEnter2D : 2D콜라이더를 사용하는 경우 OnTriggerEnter()의 2D버전인 OnCollisionEnter2D 메서드를 사용해야함.
 * Collision 타입에서 충돌 지점의 정보를 담는 contacts라는 변수[https://www.notion.so/Collision-contacts-0feab03419f94d868bc88aed43c46fa9]
+</div>
+</details>
