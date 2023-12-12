@@ -3,7 +3,7 @@
 ## 프로젝트를 진행하면서 배운 것들 정리
 
 <details open>
-<summary style="font-size: 30px; font-weight: bold;"> Dodge 프로젝트</summary>
+<summary> <h1> Dodge 프로젝트 </h1> </summary>
 <div>
 
 ### 개념적
