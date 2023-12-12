@@ -79,7 +79,7 @@
 </details>
 
 <details open>
-<summary style="font-size: 30px; font-weight: bold;"> Move 오브젝트의 이동과 회전 연습 </summary>
+<summary>  <h1>Move 오브젝트의 이동과 회전 연습 </h1> </summary>
 <div>
 
 ### 개념적
@@ -103,7 +103,7 @@
 </details>
 
 <details open>
-<summary style="font-size: 30px; font-weight: bold;"> 유니런(2D) 프로젝트 </summary>
+<summary> <h1>유니런(2D) 프로젝트 </h1> </summary>
 <div>
 
 ### 개념적
