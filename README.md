@@ -3,7 +3,7 @@
 ## 프로젝트를 진행하면서 배운 것들 정리
 
 <details open>
-<summary style="font-size: 16px;"> Dodge 프로젝트</summary>
+<summary style="font-size: 30px; font-weight: bold;"> Dodge 프로젝트</summary>
 <div>
 
 ### 개념적
@@ -79,7 +79,7 @@
 </details>
 
 <details open>
-<summary style="font-size: 16px;"> Move 오브젝트의 이동과 회전 연습 </summary>
+<summary style="font-size: 30px; font-weight: bold;"> Move 오브젝트의 이동과 회전 연습 </summary>
 <div>
 
 ### 개념적
@@ -103,7 +103,7 @@
 </details>
 
 <details open>
-<summary style="font-size: 16px;"> 유니런(2D) 프로젝트 </summary>
+<summary style="font-size: 30px; font-weight: bold;"> 유니런(2D) 프로젝트 </summary>
 <div>
 
 ### 개념적
@@ -151,6 +151,7 @@
     - 플레이어의 사망을 감지해 게임오버 처리 실행
     - 점수에 따라 점수 UI 텍스트 갱신
     - 게임오버되었을 때 게임오버 UI 활성화
+* 오브젝트 풀링[https://www.notion.so/f2618a5d819f43d496f730182fe7c8f6] : 초기에 필요한 만큼 오브젝트를 미리 만들어 '풀'에 쌓아두는 방식 => 해당 프로젝트에서 발판을 무한 반복 생성하기 위해 사용함
 
 ### 스크립트
 
