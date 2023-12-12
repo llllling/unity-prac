@@ -5,7 +5,7 @@ public class PlatformSpawner : MonoBehaviour {
     public GameObject platformPrefab; // 생성할 발판의 원본 프리팹
     public int count = 5; // 생성할 발판의 개수
 
-    public float timeBetSpawnMin = 0.25f; // 다음 배치까지의 시간 간격 최솟값
+    public float timeBetSpawnMin = 0.15f; // 다음 배치까지의 시간 간격 최솟값
     public float timeBetSpawnMax = 0.75f; // 다음 배치까지의 시간 간격 최댓값
     private float timeBetSpawn; // 다음 배치까지의 시간 간격
 
