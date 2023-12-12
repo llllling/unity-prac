@@ -156,5 +156,6 @@
   - y 방향 속도 값이 0 이하일 때 속도를 절반으로 줄이면 상승 속도가 아니라 낙하 속도가 절반 줄어듬 그래서 해당 조건 추가
 * OnCollisionEnter2D : 2D콜라이더를 사용하는 경우 OnTriggerEnter()의 2D버전인 OnCollisionEnter2D 메서드를 사용해야함.
 * Collision 타입에서 충돌 지점의 정보를 담는 contacts라는 변수[https://www.notion.so/Collision-contacts-0feab03419f94d868bc88aed43c46fa9]
+* Awake() : Start() 메서드처럼 초기 1회 자동 실행되는 유니티 이벤트 메서드지만, Start() 메서드보다 실행시점이 한 프레임 더 빠름
 </div>
 </details>
