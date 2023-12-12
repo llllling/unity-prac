@@ -19,5 +19,9 @@ public class Platform : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision) {
         // 플레이어 캐릭터가 자신을 밟았을때 점수를 추가하는 처리
+        if (!(collision.collider.CompareTag("Player") && !stepped)) return;
+
+        GameManager.instance.AddScore(1);
+        stepped = true;
     }
 }
