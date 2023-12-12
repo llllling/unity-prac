@@ -168,5 +168,9 @@
 * OnCollisionEnter2D : 2D콜라이더를 사용하는 경우 OnTriggerEnter()의 2D버전인 OnCollisionEnter2D 메서드를 사용해야함.
 * Collision 타입에서 충돌 지점의 정보를 담는 contacts라는 변수[https://www.notion.so/Collision-contacts-0feab03419f94d868bc88aed43c46fa9]
 * Awake() : Start() 메서드처럼 초기 1회 자동 실행되는 유니티 이벤트 메서드지만, Start() 메서드보다 실행시점이 한 프레임 더 빠름
+* OnEnable() : Awake()나 Start() 같은 유니티 이벤트 메서드. Start() 메서드처럼 컴포넌트가 활성화될 때 자동으로 한 번 실행됨. 하지만 처음 한 번만 실행되는 Start() 메서드와 달리 해당 메서드는 컴포넌트가 활성화 될 때마다 매번 다시 실행됨. => 컴포넌트를 끄고 다시 켜는 방식으로 재실행가능
+  - 게임 오브젝트가 활성화될 때마다 상태를 리셋하는 기능을 구현할 때 주로 이용된다.
+    - 해당 메서드에 초기화 코드를 넣어두고, 게임 오브젝트의 정보를 리셋해야 할 때마다 게임 오브젝트를 끄고 다시 켜는 방식으로 활용
+
 </div>
 </details>
