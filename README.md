@@ -2,7 +2,7 @@
 
 ## 프로젝트를 진행하면서 배운 것들 정리
 
-<details open>
+<details>
 <summary> <h1> Dodge 프로젝트 </h1> </summary>
 <div>
 
@@ -78,7 +78,7 @@
 </div>
 </details>
 
-<details open>
+<details>
 <summary>  <h1>Move 오브젝트의 이동과 회전 연습 </h1> </summary>
 <div>
 
@@ -102,7 +102,7 @@
 </div>
 </details>
 
-<details open>
+<details>
 <summary> <h1>유니런(2D) 프로젝트 </h1> </summary>
 <div>
 
@@ -183,3 +183,27 @@
 * 오디오 클립을 하이어라키 창으로 drag & drop 하면 해당 오디오 클립을 사용하는 오디오 소스 컴포넌트가 추가된 게임 오브젝트가 자동 생성됨.
 </div>
 </details>
+
+<details open>
+<summary> <h1> 좀비 서바이버 프로젝트 </h1> </summary>
+<div>
+
+### 개념적
+
+- 매시 콜라이더 컴포넌트를 사용하면 3D 모델의 외형과 일치하는 콜라이더를 만들 수 있다. 하지만 메시 콜라이더는 복잡한 형태 때문에 처리량을 크게 증가시키므로 중요한 몇 가지 게임 오브젝트에만 선택적으로 사용하는 것이 좋다.
+
+* 라이팅 연산 비용은 비싸다. 유니티는 라이팅 데이터 에셋을 사용하여 라이팅 효과의 실시간 연산량을 줄이며, 씬에 변화가 감지될 때마다 매번 새로운 ㄹ아팅 데이터 에셋을 생성한다.
+
+* 라이트맵[https://www.notion.so/1b735fee56b84a78adcbd49aefbed30c] : 오브젝트가 빛을 받았을 때 어떻게 보일지 **미리 그려둔(미리 계산해서 생성해둔) 텍스처**
+* 글로벌 일루미네이션[https://www.notion.so/GI-9b4be2ab78144647a904f675ba419348] : 물체의 표면에 직접 들어오는 빛뿐만 아니라 다른 물체의 표면에서 반사되어 들어온 **간접광까지 표현**, 줄여서 **GI**라고 부름
+  - _정적 게임 오브젝트에만 적용됨._
+* <span style="background-color: yellow; color: black;">정적 게임 오브젝트 : Static이 체크된 게임 오브젝트, 이는 게임 도중에 위치가 변경될 수 없다.</span> 대신 유니티가 상대적으로 더 많은 성능 최적화를 적용함.
+
+### 스크립트
+
+### 기타
+
+- Lighting > Realtime Lighting > Indirect Resolution : 텍스처 해상도를 유닛당 텍셀 조절
+  - _텍셀은 텍스처의 화소이다. 화면의 1화소가 1픽셀이라면 텍스처의 1화소는 1텍셀이다._
+  </div>
+  </details>
