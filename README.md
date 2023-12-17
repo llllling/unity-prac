@@ -216,6 +216,12 @@
 
 ### 스크립트
 
+- FixedUpdate() : Update()처럼 유니티 이벤트 메서드로서 주기적으로 자동 실행된다. 화면 갱신 주기에 맞춰 실행되는 Update()와 달리 FixedUpdate()는 물리 정보 갱신 주기(기본값 0.02초)에 맞춰 실행됨.
+  - 이동과 회전을 Update() 메서드에서 실행해도 되지만, 물리 주기에 맞춰 실행되는 이 메서드에서 실행할 경우 오차가 날 확률이 상대적으로 줄어듬.
+
+* Time.fixedDeltaTime : 물리 정보의 갱신 주기, 즉 FixeUpdate() 메서드의 실행 간격을 표시한다.
+  - 유니티는 개발자의 편의를 위해 FixedUpdate()내부에서 Time.deltaTime 값에 접근할 경우 자동으로 Time.fixedDeltaTime의 값을 출력한다.
+
 ### 기타
 
   </div>
