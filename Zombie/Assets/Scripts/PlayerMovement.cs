@@ -36,6 +36,8 @@ public class PlayerMovement : MonoBehaviour {
 
     // 입력값에 따라 캐릭터를 좌우로 회전
     private void Rotate() {
-
+        float turn = playerInput.rotate * rotateSpeed * Time.deltaTime;
+        // Quaternion.Euler(0, turn, 0f) : (0, turn, 0) 만큼의 회전을 표현하는 쿼터니언을 생성
+        playerRigidbody.rotation = playerRigidbody.rotation * Quaternion.Euler(0, turn, 0f);
     }
 }

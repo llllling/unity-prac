@@ -221,6 +221,19 @@
 
 * Time.fixedDeltaTime : 물리 정보의 갱신 주기, 즉 FixeUpdate() 메서드의 실행 간격을 표시한다.
   - 유니티는 개발자의 편의를 위해 FixedUpdate()내부에서 Time.deltaTime 값에 접근할 경우 자동으로 Time.fixedDeltaTime의 값을 출력한다.
+* 리지드바디의 MovePosition() 메서드 : 이동할 Vector3 위치를 입력 받음. **MovePosition() 메서드는 상대 위치가 아닌 전역 위치를 사용한다.**
+
+  - 해당 메서드에 (0, 0, 3)을 입력하면 현재 위치에서 (0, 0, 3)만큼 상대적으로 이동한 위치가 아니라 전역 좌표 (0, 0, 3)으로 이동함.
+
+  * 리지드바디 컴포넌트를 사용하지 않고 트랜스폼 컴포넌트를 사용하여 같은 방식의 이동을 구현할 수도 있다.
+    - 그렇지만 이렇게 하게 되면, _트랜스폼의 위칫값을 직접 변경하면 물리 처리를 무시하고 위치를 덮어쓰기 때문. => 막힌 벽 등을 무시하고 벽 반대쪽으로 이동할 수 도 있음._
+    - <span style="background-color: yellow; color: black;">리지드바디의 MovePosition() 메서드를 사용하면 이동 경로에 다른 콜라이더가 존재하는 경우 밀어내거나 밀려나는 물리처리가 실행된다.</span> => 벽 반대쪽으로 '순간이동'하는 사고를 방지할 수 있다.
+
+  ```C#
+    rigidbody.MovePosition(rigidbody.position + moveDistance);
+
+    //transform.position = transform.position + moveDistance;
+  ```
 
 ### 기타
 
