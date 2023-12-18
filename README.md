@@ -2,6 +2,8 @@
 
 ## 프로젝트를 진행하면서 배운 것들 정리
 
+_내용이 긴 것들은 notion에 정리하고 링크 첨부_
+
 <details>
 <summary> <h1> Dodge 프로젝트 </h1> </summary>
 <div>
@@ -213,6 +215,7 @@
   - 블렌드 트리를 가진 상태는 애니메이터 창 > 마우스 우클릭(상태도 있는 쪽) > Create State > From New Blend Tree 클릭 으로 만들 수 있다.
   * 자세한 설명은 https://www.notion.so/0c53a802528443538eb41ec3be164b11 블렌드 트리 섹션에 정리함.
 * 아바타 마스크[https://www.notion.so/60a8ede5dcdf4599bcb127595847f276] : 애니메이터의 레이어별로 부위를 다르게 적용하려면 아바타 마스크를 설정해야 한다.
+* 시네머신[https://www.notion.so/87810bb9af4e4393891e5692fdd5bc36] : 카메라의 움직임을 손쉽게 제어하는 유니티 공식 패키지
 
 ### 스크립트
 
