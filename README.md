@@ -245,6 +245,9 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
     //transform.position = transform.position + moveDistance;
   ```
 
+* 오디오 소스 컴포넌트 Play() : 이미 재생 중인 오디오가 있다면 정지하고 처음부터 오디오를 다시 재생
+* 오디오 소스 컴포넌트 PlayOneShot() : 이미 재생 중인 소리가 있어도 정지하지 않고, 재생할 오디오와 이미 재생중인 오디오를 중첩하여 재생
+
 ### 기타
 
   </div>

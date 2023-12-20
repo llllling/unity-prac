@@ -65,6 +65,18 @@ public class Gun : MonoBehaviour {
 
     // 발사 이펙트와 소리를 재생하고 총알 궤적을 그린다
     private IEnumerator ShotEffect(Vector3 hitPosition) {
+        // 총구 화염 효과 재생
+        muzzleFlashEffect.Play();
+        // 탄피 배출 효과 재생
+        shellEjectEffect.Play();
+        // 총격 소리 재생
+        gunAudioPlayer.PlayOneShot(shotClip);
+
+        // 선의 시작점은 총구의 위치 
+        bulletLineRenderer.SetPosition(0, fireTransform.position);
+        // 선의 끝접은 입력으로 들어온 충돌 위치
+        bulletLineRenderer.SetPosition(1, hitPosition);
+
         // 라인 렌더러를 활성화하여 총알 궤적을 그린다
         bulletLineRenderer.enabled = true;
 
