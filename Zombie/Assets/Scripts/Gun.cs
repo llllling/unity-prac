@@ -38,10 +38,19 @@ public class Gun : MonoBehaviour {
 
     private void Awake() {
         // 사용할 컴포넌트들의 참조를 가져오기
+        gunAudioPlayer = GetComponent<AudioSource>();
+        bulletLineRenderer = GetComponent<LineRenderer>();
+
+        // 나중에 총을 쏠 때 렌더러의 1번 점은  총구 위치 , 2번 점은 탄알이 닿을 위치를 할당
+        bulletLineRenderer.positionCount = 2;
+        bulletLineRenderer.enabled = false;
     }
 
     private void OnEnable() {
         // 총 상태 초기화
+        magAmmo = magCapacity;
+        state = State.Ready;
+        lastFireTime = 0;
     }
 
     // 발사 시도
