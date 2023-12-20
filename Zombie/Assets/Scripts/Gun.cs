@@ -55,11 +55,45 @@ public class Gun : MonoBehaviour {
 
     // 발사 시도
     public void Fire() {
+        if (state != State.Ready || Time.time < lastFireTime + timeBetFire) { return; }
+        lastFireTime = Time.time;
+        Shot();
+
 
     }
 
     // 실제 발사 처리
     private void Shot() {
+        RaycastHit hit; // 레이캐스트의 결과를 저장할 변수
+        //탄알이 맞은 곳을 저장할 변수
+        Vector3 hitPosition = Vector3.zero;
+        // out hit : 3번째 파마리터 => 레이가 충돌한 경우 hitInfo에 자세한 충돌 정보가 채워짐
+        if (Physics.Raycast(fireTransform.position, fireTransform.forward, out hit, fireDistance))
+        {
+            //레이가 어떤 물체와 충돌한 경우
+            IDamageable target = hit.collider.GetComponent<IDamageable>();
+
+
+            if (target == null) return;
+
+            target.OnDamage(damage, hitPosition, hit.normal);
+            //레이가 충돌한 위치 저장
+            hitPosition = hit.point;
+
+        } else
+        {
+            hitPosition = fireTransform.position + fireTransform.forward * fireDistance;
+        }
+
+        StartCoroutine(ShotEffect(hitPosition));
+
+        magAmmo--;
+
+        if(magAmmo <=0)
+        {
+            state = State.Empty;
+        }
+
         
     }
 
