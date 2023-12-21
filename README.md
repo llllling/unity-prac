@@ -251,7 +251,7 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 * out : out 키워드로 입력된 변수는 메서드 내부에서 변경된 사항이 반영된 채 되돌아 온다.
   - 메서드가 return 이외의 방법으로 추가 정보를 반환할 수 있게 만든다.
   - out 키워드로 입력된 변수는 메서드 내부에서 변경된 사항이 반영된 채 되돌아오기 때문.
-* Raycast(Vector3 origin, Vector3 direction, out RaycastHit hitInfo, float maxDistance)
+* Raycast[https://www.notion.so/3cdeb97c2faf4702bbcfdf7097e9a82d](Vector3 origin, Vector3 direction, out RaycastHit hitInfo, float maxDistance) : 보이지 않는 광선을 쐈을 때 광선이 다른 콜라이더와 충돌하는지 검사하는 처리
   - origin : 레이의 시작점
   - direction : 레이의 방향
   - RaycastHit hitInfo : 레이가 충돌한 경우 hitInfo에 자세한 충돌 정보가 채워진다.

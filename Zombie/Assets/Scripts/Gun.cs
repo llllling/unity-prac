@@ -123,16 +123,38 @@ public class Gun : MonoBehaviour {
 
     // 재장전 시도
     public bool Reload() {
+        if(state  == State.Reloading  || ammoRemain == 0 || magAmmo == 0)
+        {
+            return false;
+        }
+        StartCoroutine(ReloadRoutine());
         return false;
     }
 
-    // 실제 재장전 처리를 진행
+    // 실제 재장전 처리를 진행=> 대기 시간이 필요하기 때문에 실질적인 재장전은 코루틴 메서드인 여기서 필요
+    //코루틴~
     private IEnumerator ReloadRoutine() {
         // 현재 상태를 재장전 중 상태로 전환
         state = State.Reloading;
-        
+
+        gunAudioPlayer.PlayOneShot(reloadClip);
+
         // 재장전 소요 시간 만큼 처리를 쉬기
         yield return new WaitForSeconds(reloadTime);
+
+        int ammotToFill = magCapacity - magAmmo;
+
+        //리팩토링 필요
+        // 탄창에 채워야 할 탄알이 남은 타일보다 많다면
+        // 채워야 할 탄알 수를 남은 탄알 수에 맞춰 줄임
+        if (ammoRemain < ammotToFill)
+        {
+            ammotToFill =    ammoRemain;
+        }
+        //탄창을 채움
+        magAmmo = ammotToFill;
+        //남은 탄알에서 탄창을 채운만틈 탄알을 뺌
+        ammoRemain -= ammotToFill;
 
         // 총의 현재 상태를 발사 준비된 상태로 변경
         state = State.Ready;

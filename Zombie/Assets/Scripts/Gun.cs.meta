@@ -3,7 +3,12 @@ guid: 93c14943f73d87543b453f3a037d7029
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fireTransform: {instanceID: 0}
+  - muzzleFlashEffect: {instanceID: 0}
+  - shellEjectEffect: {instanceID: 0}
+  - shotClip: {fileID: 8300000, guid: b82a66dab749415458d1f6600c997095, type: 3}
+  - reloadClip: {fileID: 8300000, guid: 9eca29ee7f8209e419470fcd586aec21, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
