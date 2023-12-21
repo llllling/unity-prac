@@ -27,3 +27,36 @@
 7. 아이템은 주기적으로 플레이어 근처의 랜덤한 위치에 생성된다. 생성된 아이템은 일정 시간 뒤에 사라진다. 몰려오는 좀비를 피하고 아이템을 찾기 위해 플레이어는 멈추지 않고 계속 움직어야 함.
 
 ### 예제 프로젝트를 진행하면서 리팩토링
+
+<!-- - 재장전 처리 메서드
+
+  - before
+
+    ```C#
+    private IEnumerator ReloadRoutine() {
+        // 현재 상태를 재장전 중 상태로 전환
+        state = State.Reloading;
+
+        gunAudioPlayer.PlayOneShot(reloadClip);
+
+        // 재장전 소요 시간 만큼 처리를 쉬기
+        yield return new WaitForSeconds(reloadTime);
+
+        //탄창에 채울 탄알을 계산
+        int ammoToFill = magCapacity - magAmmo;
+
+        // 탄창에 채워야 할 탄알이 남은 타일보다 많다면
+        // 채워야 할 탄알 수를 남은 탄알 수에 맞춰 줄임
+        if (ammoRemain < ammoToFill)
+        {
+            ammoToFill =  ammoRemain;
+        }
+        //탄창을 채움
+        magAmmo += ammoToFill;
+        //남은 탄알에서 탄창을 채운만틈 탄알을 뺌
+        ammoRemain -= ammoToFill;
+
+        // 총의 현재 상태를 발사 준비된 상태로 변경
+        state = State.Ready;
+    }
+    ``` -->
