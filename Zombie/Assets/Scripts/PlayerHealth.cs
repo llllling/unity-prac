@@ -17,11 +17,31 @@ public class PlayerHealth : LivingEntity {
 
     private void Awake() {
         // 사용할 컴포넌트를 가져오기
+        playerAudioPlayer = GetComponent<AudioSource>();
+        playerAnimator = GetComponent<Animator>();
+
+        playerMovement = GetComponent<PlayerMovement>();
+        playerShooter = GetComponent<PlayerShooter>();
     }
 
+    // 부활 기능을 염두에 둔 구현
+    /**
+     좀비 서바이버는 플레이어 캐릭터가 사망하면 그대로 게임오버됨. 
+    현재는 부활기능이 없으므로 OnEnable()에서 처리를 Awake() 메서드로 옮기거나, OnEnable()에서 Health Slider 게임 오브젝트와 PlayerShooter, PlayerMovement 컴포넌트를 활성화하는 
+    처리를 삭제해도 됨. => 굳이 OnEnable() 메서드에서 활성화하지 않아도 플레이어 캐릭터의 Health Slider 게임 오브젝트와 PlayerShooter, PlayerMovement 컴포넌트는 미리 활성화된 상태이기 때문
+     */
     protected override void OnEnable() {
         // LivingEntity의 OnEnable() 실행 (상태 초기화)
         base.OnEnable();
+
+      
+        healthSlider.gameObject.SetActive(true);   //게임 오브젝트 활성화
+        healthSlider.maxValue = startingHealth;
+        healthSlider.value = health;
+
+        //컴포넌트 활성화
+        playerMovement.enabled = true;
+        playerShooter.enabled = true; 
     }
 
     // 체력 회복

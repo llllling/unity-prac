@@ -225,6 +225,10 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
   - 따라서 라인 렌더러를 끄고 켜는 처리 사이에 대기 시간이 필요함. 이때 코루틴이 사용된다.
 * 레이캐스트[https://www.notion.so/3cdeb97c2faf4702bbcfdf7097e9a82d] : 보이지 않는 광선을 쐈을 때 광선이 다른 콜라이더와 충돌하는지 검사하는 처리
 * IK[https://www.notion.so/IK-84ead81c25794f5b9eaa8288ed2ec538] : 어떤 애니메이션을 사용하든 상관없이 캐릭터의 손의 위치가 항상 총의 손잡이에 위치하려면 애니메이터의 IK를 사용해야 함.
+* UGUI의 캔버스 : 게임화면을 기준으로 UI를 배치함.
+  - 렌더 모드를 전역 공간으로 변경하면 캔버스와 그 위의 UI 게임 오브젝트들은 3D 게임 월드에 배치되며, 캔버스 게임 오브젝트는 일반적인 게임 오브젝트처럼 게임 월드 상의 위치, 회전, 크기를 가지게 됨.
+  * https://www.notion.so/UI-UGUI-d3065c41b3604167ac3952e137e76459에 UGUI 섹션에 정리해 둠
+* UI > Slider[https://www.notion.so/Slider-2b07fd1705df4de299fe04d2f1fcba42]
 
 ### 스크립트
 
@@ -259,8 +263,20 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
   - maxDistance : 레이 충돌을 검사할 최대 거리
   * Raycast() 메서드는 자신의 내부에서 hitInfo에 충돌 정보를 채운다.
   * 종료되었을 때 변경 사항이 유지된 채로 hitInfo가 돌아옴.
+* Action 타입 : 입력과 출력이 없는 메서드를 가리킬 수 있는 델리케이트
+  ```C#
+    Action onClean;
+    void Start() {
+      onClean += CleaningRoomA;
+    }
+    void CleaningRoomA() {
+      Debug.Log("A방 청소");
+    }
+  ```
+* event 키워드 : 어떤 델리게이트 변수를 event로 선언하면 클래스 외부에서는 해당 델리게이트를 **실행할 수 없게 된다.**
 
 ### 기타
 
+- 하이어라키 창에서 Canvas로 예를 들면 옆에 펼치기 버튼을 [Alt + 클릭] -> Canvas의 모든 자식 오브젝트가 한 번에 표시됨.
   </div>
   </details>
