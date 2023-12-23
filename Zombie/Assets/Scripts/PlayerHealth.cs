@@ -68,6 +68,16 @@ public class PlayerHealth : LivingEntity {
     public override void Die() {
         // LivingEntity의 Die() 실행(사망 적용)
         base.Die();
+
+        healthSlider.gameObject.SetActive(false);
+
+        playerAudioPlayer.PlayOneShot(deathClip);
+        playerAnimator.SetTrigger("Die");
+
+
+        playerMovement.enabled = false;
+        playerShooter.enabled = false;
+
     }
 
     private void OnTriggerEnter(Collider other) {
