@@ -229,6 +229,9 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
   - 렌더 모드를 전역 공간으로 변경하면 캔버스와 그 위의 UI 게임 오브젝트들은 3D 게임 월드에 배치되며, 캔버스 게임 오브젝트는 일반적인 게임 오브젝트처럼 게임 월드 상의 위치, 회전, 크기를 가지게 됨.
   * https://www.notion.so/UI-UGUI-d3065c41b3604167ac3952e137e76459에 UGUI 섹션에 정리해 둠
 * UI > Slider[https://www.notion.so/Slider-2b07fd1705df4de299fe04d2f1fcba42]
+* 내비게이션 시스템[https://www.notion.so/c486647c191f428fa24d59a8bafe0619]: 유니티는 한 위치에서 다른 위치로의 경로를 계산하고 실시간으로 장애물을 피하며 이동하는 인공지능을 만드는 내비게이션 시스템을 제공한다.
+* 인공지능 추가하기 : Add Component > Navigation > Nav Mesh Agent
+  - https://www.notion.so/c486647c191f428fa24d59a8bafe0619 인공지능 추가하기 섹션
 
 ### 스크립트
 
