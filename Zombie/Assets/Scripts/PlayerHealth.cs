@@ -82,5 +82,14 @@ public class PlayerHealth : LivingEntity {
 
     private void OnTriggerEnter(Collider other) {
         // 아이템과 충돌한 경우 해당 아이템을 사용하는 처리
+
+        if (dead) { return; }
+
+        IItem item = other.GetComponent<IItem>();
+
+        if (item == null) { return; }
+
+        item.Use(gameObject);
+        playerAudioPlayer.PlayOneShot(itemPickupClip);
     }
 }
