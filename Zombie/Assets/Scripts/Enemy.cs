@@ -81,6 +81,20 @@ public class Enemy : LivingEntity {
             {
                 pathFinder.isStopped=true;
 
+                Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, whatIsTarget);
+
+                /*리팩토링 하자 => 어차피 모든 콜라이더를 다 순회해야함으로 foreach로 하자 더 안전성 있게. */
+                for (int i= 0; i< colliders.Length; i++)
+                {
+                    LivingEntity livingEntity = colliders[i].GetComponent<LivingEntity>();
+                    
+                    if (livingEntity != null && livingEntity.dead) {
+                        targetEntity = livingEntity;
+
+                        break;
+                           
+                    }
+                }
             }
             // 0.25초 주기로 처리 반복
             yield return new WaitForSeconds(0.25f);
