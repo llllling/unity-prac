@@ -115,12 +115,22 @@ public class Enemy : LivingEntity {
 
     // 사망 처리
     public override void Die() {
-        if(!dead)
-        {
-            hitEffect.transform.position = 
-        }
         // LivingEntity의 Die()를 실행하여 기본 사망 처리 실행
         base.Die();
+
+        /*리팩토링 위의 for문과 같은 이치*/
+        Collider[] enemyColliders = GetComponents<Collider>();
+        for(int i = 0; i < enemyColliders.Length; i++)
+        {
+            enemyColliders[i].enabled = false;
+        }
+
+        pathFinder.isStopped = true;
+        // 내비메시 에이전트들은 서로를 방해하지 않도록 경로를 계산하기 때문에 비활성화
+        pathFinder.enabled = false;
+
+        enemyAnimator.SetTrigger("Die");
+        enemyAudioPlayer.PlayOneShot(deathSound);
     }
 
     private void OnTriggerStay(Collider other) {
