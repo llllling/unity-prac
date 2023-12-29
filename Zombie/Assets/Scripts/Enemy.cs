@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI; // AI, 내비게이션 시스템 관련 코드를 가져오기
 
@@ -22,7 +23,7 @@ public class Enemy : LivingEntity {
     private float lastAttackTime; // 마지막 공격 시점
 
     // 추적할 대상이 존재하는지 알려주는 프로퍼티
-    private bool hasTarget
+    private bool HasTarget
     {
         get
         {
@@ -65,15 +66,16 @@ public class Enemy : LivingEntity {
 
     private void Update() {
         // 추적 대상의 존재 여부에 따라 다른 애니메이션을 재생
-        enemyAnimator.SetBool("HasTarget", hasTarget);
+        enemyAnimator.SetBool("HasTarget", HasTarget);
     }
 
     // 주기적으로 추적할 대상의 위치를 찾아 경로를 갱신
     private IEnumerator UpdatePath() {
+
         // 살아있는 동안 무한 루프
         while (!dead)
         {
-            if(hasTarget)
+            if(HasTarget)
             {
                 pathFinder.isStopped = false;
                 pathFinder.SetDestination(targetEntity.transform.position);
@@ -88,7 +90,7 @@ public class Enemy : LivingEntity {
                 {
                     LivingEntity livingEntity = colliders[i].GetComponent<LivingEntity>();
                     
-                    if (livingEntity != null && livingEntity.dead) {
+                    if (livingEntity != null && !livingEntity.dead) {
                         targetEntity = livingEntity;
 
                         break;
