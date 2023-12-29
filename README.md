@@ -281,6 +281,18 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 * GetComponentInChildren<T>() : 자식 게임오브젝트에서 컴포넌트 가져올 때 사용하는 메서드
 * Physics.OverlapSphere() : 중심 위치와 반지름을 입력받아 가상의 구를 그리고, 구에 겹치는 모든 콜라이더를 반환한다.
   - 아무 필터링 없이 이 메서드를 실행하면 성능 낭비가 되므로, 세 번째 값으로 레이어 마스크를 입력하면 특정 레이어만 감지할 수 있게 됨.
+* Quaternion.LookRotation() : 방향벡터를 입력받아 해당 방향을 바라보는 쿼터니언 회전값을 반환한다.
+* 파티클 효과를 재생하기 전에 파티클 효과의 위치와 회전을 다음 값으로 변경해야 함.
+
+  - 위치 : 공격받은 지점(피격 위치)
+  - 회전 : 공격이 날아온 방향을 바라보는 방향(피격 방향)
+
+  ```C#
+   public ParticleSystem hitEffect;
+
+   hitEffect.transform.position = hitPoint;
+   hitEffect.transform.rotation = Quaternion.LookRotation(hitNormal);
+  ```
 
 ### 기타
 

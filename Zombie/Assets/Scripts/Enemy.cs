@@ -103,12 +103,22 @@ public class Enemy : LivingEntity {
 
     // 데미지를 입었을때 실행할 처리
     public override void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal) {
+        if(!dead)
+        {
+            hitEffect.transform.position = hitPoint;
+            hitEffect.transform.rotation = Quaternion.LookRotation(hitNormal);
+            enemyAudioPlayer.PlayOneShot(hitSound);
+        }
         // LivingEntity의 OnDamage()를 실행하여 데미지 적용
         base.OnDamage(damage, hitPoint, hitNormal);
     }
 
     // 사망 처리
     public override void Die() {
+        if(!dead)
+        {
+            hitEffect.transform.position = 
+        }
         // LivingEntity의 Die()를 실행하여 기본 사망 처리 실행
         base.Die();
     }
