@@ -233,6 +233,7 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 * 인공지능 추가하기 : Add Component > Navigation > Nav Mesh Agent
   - https://www.notion.so/c486647c191f428fa24d59a8bafe0619 인공지능 추가하기 섹션
 * **레이어 마스크** : 특정 레이어를 가진 게임 오브젝트에 물리 또는 그래픽 처리 등을 적용시킬 때 사용함.
+* 이벤트[https://www.notion.so/e5b2fd4a1142420f8558cc87cf48b5ab] : 연쇄적인 처리를 발생시키는 사건
 
 ### 스크립트
 
