@@ -18,12 +18,14 @@ public class EnemySpawner : MonoBehaviour {
 
     public Color strongEnemyColor = Color.red; // 강한 적 AI가 가지게 될 피부색
 
+    /* List : 배열과 달리 저장공간의 크기가 자유롭게 변하는 특징이 있다. 좀비 서바이버에서 적 수는 실시간으로 늘어나거나 줄어들기 때문에 
+     * 생성한 적을 리스트로 저장*/
     private List<Enemy> enemies = new List<Enemy>(); // 생성된 적들을 담는 리스트
-    private int wave; // 현재 웨이브
+    private int wave = 0; // 현재 웨이브
 
     private void Update() {
         // 게임 오버 상태일때는 생성하지 않음
-        if (GameManager.instance != null && GameManager.instance.isGameover)
+        if (GameManager.instance != null && GameManager.instance.IsGameover)
         {
             return;
         }
@@ -46,9 +48,37 @@ public class EnemySpawner : MonoBehaviour {
 
     // 현재 웨이브에 맞춰 적을 생성
     private void SpawnWave() {
+        wave++;
+
+        int spawnCount = Mathf.RoundToInt(wave * 1.5f);
+
+        while(spawnCount > -1) {
+            float enemyIntensity = Random.Range(0f, 1f);
+            CreateEnemy(enemyIntensity);
+
+            spawnCount--;
+        }
     }
 
     // 적을 생성하고 생성한 적에게 추적할 대상을 할당
     private void CreateEnemy(float intensity) {
+        // intensity 가 0에 가까울 수록 Min 값에 가까워지며, 1에 가까울 수록 Max에 가까워 진다.
+        float health = Mathf.Lerp(healthMin, healthMax, intensity);
+        float damage = Mathf.Lerp(damageMin, damageMax, intensity);
+        float speed = Mathf.Lerp(speedMin, speedMax, intensity);
+        // white와 strongEnemyColor를 섞은 컬러 반환
+        Color skinColor = Color.Lerp(Color.white, strongEnemyColor, intensity);
+
+        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+        Enemy enemy = Instantiate(enemyPrefab, spawnPoint.position,spawnPoint.rotation);
+        enemy.Setup(health, damage, speed, skinColor);
+
+        enemies.Add(enemy);
+
+        enemy.onDeath += () => enemies.Remove(enemy);
+        enemy.onDeath += () => Destroy(enemy.gameObject, 10f); //10초 뒤에 파괴
+        // 적 사망 시 점수 상승
+        enemy.onDeath += () => GameManager.instance.AddScore(100);
     }
 }
