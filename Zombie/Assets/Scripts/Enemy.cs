@@ -133,7 +133,26 @@ public class Enemy : LivingEntity {
         enemyAudioPlayer.PlayOneShot(deathSound);
     }
 
+    
     private void OnTriggerStay(Collider other) {
-        // 트리거 충돌한 상대방 게임 오브젝트가 추적 대상이라면 공격 실행   
+       
+        /*리팩토링 : 공격이 가능한 상태이면 변수로 빼자 */
+        if (!dead && Time.time >= lastAttackTime + timeBetAttack)
+        {
+            LivingEntity attackTarget = other.GetComponent<LivingEntity>();
+            // 리팩톨 : 트리거 충돌한 상대방 게임 오브젝트가 추적 대상이라면 공격 실행   
+            if (attackTarget != null && attackTarget == targetEntity)
+            {
+                lastAttackTime = Time.time;
+
+                // 리팩토링  
+                // 상대방의 피격 위치와 피격 방향을 근삿값으로 계산
+                // 상대방 콜라이더 표면에서 자신의 위치와 가장 가가운 점의 위치를 반환
+                Vector3 hitPoint = other.ClosestPoint(transform.position);
+                // 공격 대상 위치에서 자신의 위치로 향하는 방향
+                Vector3 hitNormal = transform.position - other.transform.position;
+                attackTarget.OnDamage(damage, hitPoint, hitNormal);
+            }
+        }
     }
 }

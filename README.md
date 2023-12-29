@@ -294,6 +294,8 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
    hitEffect.transform.rotation = Quaternion.LookRotation(hitNormal);
   ```
 
+* 콜라이더 컴포넌트의 ClosestPoint() : 콜라이더 표면 위의 점 중 특정 위치와 가장 가까운 점을 반환함.
+
 ### 기타
 
 - 하이어라키 창에서 Canvas로 예를 들면 옆에 펼치기 버튼을 [Alt + 클릭] -> Canvas의 모든 자식 오브젝트가 한 번에 표시됨.
