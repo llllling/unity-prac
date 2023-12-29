@@ -302,6 +302,8 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
      float health = Mathf.Lerp(healthMin, healthMax, intensity);
      Color skinColor = Color.Lerp(Color.white, strongEnemyColor, intensity);
   ```
+* Random.insideUnitSphere : 반지름이 1인 구 안에서의 랜덤한 한 점을 반환하는 프로퍼티
+  - 반환된 벡터는 원점 (0, 0, 0)을 중심으로 함
 
 ### 기타
 

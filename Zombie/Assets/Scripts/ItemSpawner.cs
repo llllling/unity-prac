@@ -23,7 +23,10 @@ public class ItemSpawner : MonoBehaviour {
     // 주기적으로 아이템 생성 처리 실행
     private void Update() {
         // 현재 시점이 마지막 생성 시점에서 생성 주기 이상 지남
-        // && 플레이어 캐릭터가 존재함
+        /* && 플레이어 캐릭터가 존재함 => 리팩토링 
+             playerTransform != null을 사용해서 이걸로 하는 것 같은데 직관적이지 않음. 왜 transform으로 했는 지 다른 메소드에서 사용하는 거 보고 알게되었음
+          Player class를 만들어서 이런것들을 총괄하게  생성하면 어떨까 ?
+         */
         if (Time.time >= lastSpawnTime + timeBetSpawn && playerTransform != null)
         {
             // 마지막 생성 시간 갱신
@@ -55,7 +58,8 @@ public class ItemSpawner : MonoBehaviour {
     // center를 중심으로 distance 반경 안에서 랜덤한 위치를 찾는다
     private Vector3 GetRandomPointOnNavMesh(Vector3 center, float distance) {
         // center를 중심으로 반지름이 maxDistance인 구 안에서의 랜덤한 위치 하나를 저장
-        // Random.insideUnitSphere는 반지름이 1인 구 안에서의 랜덤한 한 점을 반환하는 프로퍼티
+        // Random.insideUnitSphere는 반지름이 1인 구 안에서의 랜덤한 한 점을 반환하는 프로퍼티 => 반환된 벡터는 원점 (0, 0, 0)을 중심으로 함
+        // distance를 곱하고 center를 더하면(원점 (0, 0, 0)을 중심으로 하니까) 위치가 center이며 반지름이 distance인 구 내부의 랜덤한 한 점을 선택하는 것과 같다.
         Vector3 randomPos = Random.insideUnitSphere * distance + center;
 
         // 내비메시 샘플링의 결과 정보를 저장하는 변수

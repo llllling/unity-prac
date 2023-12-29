@@ -142,7 +142,7 @@ public class Enemy : LivingEntity {
         if (!dead && Time.time >= lastAttackTime + timeBetAttack)
         {
             LivingEntity attackTarget = other.GetComponent<LivingEntity>();
-            // 리팩톨 : 트리거 충돌한 상대방 게임 오브젝트가 추적 대상이라면 공격 실행   
+            // 리팩토링 : 트리거 충돌한 상대방 게임 오브젝트가 추적 대상이라면 공격 실행   
             if (attackTarget != null && attackTarget == targetEntity)
             {
                 lastAttackTime = Time.time;
