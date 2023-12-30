@@ -332,7 +332,12 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 - RPC[https://www.notion.so/RPC-afc46f44bb4140c385a4a398a4a835df] : 어떤 메서드나 처리를 네트워크를 넘어 다른 클라이언트에서 실행하는 것.
   - 대부분 멀티플레이어 API에는 RPC가 구현되어 있다.
 
+* PUN(Photon Unity Network)[https://www.notion.so/PUN-Photon-Unity-Network-65c7a939fe4645398ccae2e90ff355f6] : 유니티용으로 제작된 포톤 네트워크 엔진
+
 ### 스크립트
+
+- MonoBehaviourPunCallbacks : MonoBehaviour를 확장한 클래스로, Photon.Pun에서 제공한다.
+  - MonoBehaviour 기능을 유지한 채 컴포넌트가 포톤 서비스에 의해 발생하는 콜백(이벤트나 메시지)도 감지할 수 있게 함.
 
 ### 기타
 

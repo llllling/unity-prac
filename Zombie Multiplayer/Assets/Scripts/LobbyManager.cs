@@ -12,7 +12,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks {
 
     // 게임 실행과 동시에 마스터 서버 접속 시도
     private void Start() {
-        
+        PhotonNetwork.GameVersion = gameVersion;   
+        //설정한 정보로 마스터 서버에 접속 시도
+        PhotonNetwork.ConnectUsingSettings();
+
+        joinButton.interactable = false;
+        connectionInfoText.text = "마스터 서버에 접속 중...";
     }
 
     // 마스터 서버 접속 성공시 자동 실행
