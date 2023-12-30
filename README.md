@@ -339,6 +339,10 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 
 - PUN(Photon Unity Network)[https://www.notion.so/PUN-Photon-Unity-Network-65c7a939fe4645398ccae2e90ff355f6] : 유니티용으로 제작된 포톤 네트워크 엔진
 
+* Photon View 컴포넌트[https://www.notion.so/Photon-View-dee8d7d3687b40a88704e2b9fc223f51] : 네트워크를 통해 동기화 될 모든 게임 오브젝트는 Photon View 컴포넌트를 가져야 함.
+* Photon Transform View 컴포넌트[https://www.notion.so/Photon-Transform-View-5a30231bd98f4ee8993f62cb40a911f2] : 자신의 게임 오브젝트에 추가된 트랜스폼 컴포넌트 값의 변화를 측정하고, Photon View 컴포넌트를 사용해 동기화 함.
+* Photon Animator View 컴포넌트[] : 네트워크를 넘어 로컬 게임 오브젝트와 리모트 게임 오브젝트 사이에서 애니메이터 컴포넌트의 파라미터를 동기화하여 서로 같은 애니메이션을 재생하도록 한다.
+
 ### 스크립트
 
 - 아래에 정리된 PUN 관련 클래스, 메서드, 함수들에 관한 설명은 https://www.notion.so/PUN-Photon-Unity-Network-65c7a939fe4645398ccae2e90ff355f6에 좀 더 구체적으로 정리해두었음
