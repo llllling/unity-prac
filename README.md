@@ -336,8 +336,18 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 
 ### 스크립트
 
-- MonoBehaviourPunCallbacks : MonoBehaviour를 확장한 클래스로, Photon.Pun에서 제공한다.
+- 아래에 정리된 PUN 관련 클래스, 메서드, 함수들에 관한 설명은 https://www.notion.so/PUN-Photon-Unity-Network-65c7a939fe4645398ccae2e90ff355f6에 좀 더 구체적으로 정리해두었음
+
+* MonoBehaviourPunCallbacks : MonoBehaviour를 확장한 클래스로, Photon.Pun에서 제공한다.
   - MonoBehaviour 기능을 유지한 채 컴포넌트가 포톤 서비스에 의해 발생하는 콜백(이벤트나 메시지)도 감지할 수 있게 함.
+
+- PhotonNetwork.ConnectUsingSettings(): 설정한 정보로 마스터 서버에 접속 시도
+- PhotonNetwork.CreateRoom(string 룸의 이름, 룸 옵션) : 새로운 방 생성
+  - PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 4 }) : 최대 4명을 수용 가능한 빈 방 생성
+  * 생성된 룸은 리슨 서버 방식으로 동작하며 룸을 생성한 클라이언트가 호스트 역할을 맡게 됨
+- - OnJoinedRoom() : 룸 참가에 성공한 경우 자동 실행
+    - PhotonNetwork.CreateRoom()을 사용해 **자신이 룸을 직접 생성하고 참가한 경우에도 해당 메서드가 실행됨.**
+- PhotonNetwork.LoadLevel() : 어떤 씬을 로드하고, 해당 씬의 구성이 플레이어 사이에 동기화되도록 유지함.
 
 ### 기타
 
