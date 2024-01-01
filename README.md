@@ -339,7 +339,7 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 
 - PUN(Photon Unity Network)[https://www.notion.so/PUN-Photon-Unity-Network-65c7a939fe4645398ccae2e90ff355f6] : 유니티용으로 제작된 포톤 네트워크 엔진
 
-* Photon View 컴포넌트[https://www.notion.so/Photon-View-dee8d7d3687b40a88704e2b9fc223f51] : 네트워크를 통해 동기화 될 모든 게임 오브젝트는 Photon View 컴포넌트를 가져야 함.
+* <span style="background-color: yellow; color: black;"> Photon View 컴포넌트[https://www.notion.so/Photon-View-dee8d7d3687b40a88704e2b9fc223f51] : 네트워크를 통해 동기화 될(네트워크상에서 식별이 가능하도록) 모든 게임 오브젝트는 Photon View 컴포넌트를 가져야 함.</span>
   - 부모 게임 오브젝트에 Photon View 컴포넌트가 이미 추가되어 있다고 해도 자식 게임 오브젝트에서 독자적으로 실행할 네트워크 처리가 있다면 자식 게임 오브젝트에도 Photon View 컴포넌트를 추가하여 View ID를 부여해야 함.
 * Photon Transform View 컴포넌트[https://www.notion.so/Photon-Transform-View-5a30231bd98f4ee8993f62cb40a911f2] : 자신의 게임 오브젝트에 추가된 트랜스폼 컴포넌트 값의 변화를 측정하고, Photon View 컴포넌트를 사용해 동기화 함.
 * Photon Animator View 컴포넌트[https://www.notion.so/Photon-Animator-View-af105c771e57413bb342356dc09aeae0] : 네트워크를 넘어 로컬 게임 오브젝트와 리모트 게임 오브젝트 사이에서 애니메이터 컴포넌트의 파라미터를 동기화하여 서로 같은 애니메이션을 재생하도록 한다.
@@ -354,6 +354,7 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 * MonoBehaviourPunCallbacks : MonoBehaviour를 확장한 클래스로, Photon.Pun에서 제공한다.
   - MonoBehaviour 기능을 유지한 채 컴포넌트가 포톤 서비스에 의해 발생하는 콜백(이벤트나 메시지)도 감지할 수 있게 함.
 * MonoBehaviourPun : MonoBehaviourPun에서 photonView 프로퍼티만 추가하여 단순 확장한 클래스임.
+* photonView.IsMine : 로컬인지
 
 - PhotonNetwork.ConnectUsingSettings(): 설정한 정보로 마스터 서버에 접속 시도
 - PhotonNetwork.CreateRoom(string 룸의 이름, 룸 옵션) : 새로운 방 생성
@@ -363,10 +364,12 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
     - PhotonNetwork.CreateRoom()을 사용해 **자신이 룸을 직접 생성하고 참가한 경우에도 해당 메서드가 실행됨.**
 - PhotonNetwork.LoadLevel() : 어떤 씬을 로드하고, 해당 씬의 구성이 플레이어 사이에 동기화되도록 유지함.
 
+* PhotonNetwork.IsMasterClient : 호스트인지
 * [PunRPC][https://www.notion.so/PunRPC-9b224b1408f743cea6a21e21396c0027] : RPC를 구현하는 속성. [PunRPC]로 선언된 메서드는 다른 클라이언트에서 원격 실행할 수 있다.
 * Invoke(지연 실행할 메서드명, 지연시간) : 특정 메서드를 지연 실행하는 메서드
 * RpcTarget.MasterClient : 호스트 클라이언트를 나타내는 값
-* Photon.Network.Destroy() : 네트워크상의 모든 클라이언트에서 매개변수로 넘어온 게임오브젝트를 동일하게 파괴한다.
+* PhotonNetwork.Destroy()[https://www.notion.so/PhotonNetwork-Destroy-825a256eecff45e3bb10cc4b3b8a8851] : 네트워크상의 모든 클라이언트에서 매개변수로 넘어온 게임오브젝트를 동일하게 파괴한다.
+  - 지연시간을 받지 못함.
 * PhotonNewtwork.Instantiate()[https://www.notion.so/PhotonNewtwork-Instantiate-be3da08b850b429e98ab327778b299c9] : 자신의 게임 월드에서 어떤 게임 오브젝트를 생성하고, 같은 게임 오브젝트를 타인의 게임 월드에도 생성되게 한다.
   - 입력으로 Photon View 컴포넌트가 추가된 프리팹을 받아 해당 프리팹의 복제본을 모든 클라이언트에서 생성함.
   * 생성된 게임 오브젝트의 소유권은 PhotonNewtwork.Instantiate()를 직접 실행한 측에 있다.
