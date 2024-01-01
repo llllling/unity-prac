@@ -4,7 +4,7 @@
 
 _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 
-<details>
+<details open>
 <summary> <h1> Dodge 프로젝트 </h1> </summary>
 <div>
 
@@ -80,7 +80,7 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 </div>
 </details>
 
-<details>
+<details open>
 <summary>  <h1>Move 오브젝트의 이동과 회전 연습 </h1> </summary>
 <div>
 
@@ -104,7 +104,7 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 </div>
 </details>
 
-<details>
+<details open>
 <summary> <h1>유니런(2D) 프로젝트 </h1> </summary>
 <div>
 
@@ -186,7 +186,7 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 </div>
 </details>
 
-<details>
+<details open>
 <summary> <h1> 좀비 서바이버 프로젝트 </h1> </summary>
 <div>
 
