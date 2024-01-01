@@ -340,8 +340,12 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 - PUN(Photon Unity Network)[https://www.notion.so/PUN-Photon-Unity-Network-65c7a939fe4645398ccae2e90ff355f6] : 유니티용으로 제작된 포톤 네트워크 엔진
 
 * Photon View 컴포넌트[https://www.notion.so/Photon-View-dee8d7d3687b40a88704e2b9fc223f51] : 네트워크를 통해 동기화 될 모든 게임 오브젝트는 Photon View 컴포넌트를 가져야 함.
+  - 부모 게임 오브젝트에 Photon View 컴포넌트가 이미 추가되어 있다고 해도 자식 게임 오브젝트에서 독자적으로 실행할 네트워크 처리가 있다면 자식 게임 오브젝트에도 Photon View 컴포넌트를 추가하여 View ID를 부여해야 함.
 * Photon Transform View 컴포넌트[https://www.notion.so/Photon-Transform-View-5a30231bd98f4ee8993f62cb40a911f2] : 자신의 게임 오브젝트에 추가된 트랜스폼 컴포넌트 값의 변화를 측정하고, Photon View 컴포넌트를 사용해 동기화 함.
 * Photon Animator View 컴포넌트[https://www.notion.so/Photon-Animator-View-af105c771e57413bb342356dc09aeae0] : 네트워크를 넘어 로컬 게임 오브젝트와 리모트 게임 오브젝트 사이에서 애니메이터 컴포넌트의 파라미터를 동기화하여 서로 같은 애니메이션을 재생하도록 한다.
+* IPunObservable 인터페이스와 OnPhotonSerializeView()[https://www.notion.so/IPunObservable-OnPhotonSerializeView-2b5102296f7f40b792338fab6ef16674] : Photon View 컴포넌트를 사용해 동기화를 구현할 모든 컴포넌트(스크립트)는 IPunObservable 인터페이스를 상속하고 OnPhotonSerializeView() 메서드를 구현해야 함.
+  - OnPhotonSerializeView() : Photon View 컴포넌트를 사용해 로컬과 리모트 사이에서 어떤 값을 어떻게 주고받을지 결정한다. 해당 메서드는 Photon View 컴포넌트에 의해 자동으로 실행됨.
+  - **IPunObservable 인터페이스를 상속한 컴포넌트는 Photon View 컴포넌트의 Observed Components에 등록되어 로컬과 리모트에서 동기화될 수 있다.**
 
 ### 스크립트
 
@@ -358,6 +362,15 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 - - OnJoinedRoom() : 룸 참가에 성공한 경우 자동 실행
     - PhotonNetwork.CreateRoom()을 사용해 **자신이 룸을 직접 생성하고 참가한 경우에도 해당 메서드가 실행됨.**
 - PhotonNetwork.LoadLevel() : 어떤 씬을 로드하고, 해당 씬의 구성이 플레이어 사이에 동기화되도록 유지함.
+
+* [PunRPC][https://www.notion.so/PunRPC-9b224b1408f743cea6a21e21396c0027] : RPC를 구현하는 속성. [PunRPC]로 선언된 메서드는 다른 클라이언트에서 원격 실행할 수 있다.
+* Invoke(지연 실행할 메서드명, 지연시간) : 특정 메서드를 지연 실행하는 메서드
+* RpcTarget.MasterClient : 호스트 클라이언트를 나타내는 값
+* Photon.Network.Destroy() : 네트워크상의 모든 클라이언트에서 매개변수로 넘어온 게임오브젝트를 동일하게 파괴한다.
+* PhotonNewtwork.Instantiate()[https://www.notion.so/PhotonNewtwork-Instantiate-be3da08b850b429e98ab327778b299c9] : 자신의 게임 월드에서 어떤 게임 오브젝트를 생성하고, 같은 게임 오브젝트를 타인의 게임 월드에도 생성되게 한다.
+  - 입력으로 Photon View 컴포넌트가 추가된 프리팹을 받아 해당 프리팹의 복제본을 모든 클라이언트에서 생성함.
+  * 생성된 게임 오브젝트의 소유권은 PhotonNewtwork.Instantiate()를 직접 실행한 측에 있다.
+  * **PhotonNetwork.Instantiate()를 사용해 생성한 프리팹들은 Resources라는 이름의 폴더에 있어야함.**
 
 ### 기타
 
