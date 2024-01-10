@@ -36,6 +36,7 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
 * Update() : update 메서드는 한 프레임에 한 번, 매 프레임마다 반복 실행됨. => 60FPS이면 1초에 60번 실행됨.
 * gameObject: gameObject 변수는 컴포넌트들의 기반 클래스인 MonoBehaviour에서 제공하는 GameObject 타입의 변수, 컴포넌트 입장에서 자신이 추가된 게임 오브젝트를 가리키는 변수
 * GetComponent<~>() : 자신의 게임 오브젝트에서 제네릭 부분에 입력한 타입의 컴포넌트를 찾아오는 메서드
+  * 내가 아닌 다른 게임 오브젝트의 컴포넌트 정보 : 게임오브젝트.GetComponent<~>()
 * Input.GetAxios(string axisName) : 어떤 축에 대한 입력값을 숫자로 반환하는 메서드(https://www.notion.so/Input-GetAxios-0f3988aa25374898bd16e3a724b10ccc)
 
 - transform : Transform 타입의 변수, 자신의 게임 오브젝트의 transform 컴포넌트로 바로 접근하는 변수.
@@ -168,7 +169,6 @@ _내용이 긴 것들은 notion에 정리하고 링크 첨부_
   - 이 시점에서 점프 속도가 아닌 낙하 속도를 절반으로 줄이는 문제가 발생할 수 있다.
   - 마우스 왼쪽 버튼을 너무 오래 누르고 있다가 캐릭터가 최고 높이에 도달한 후 낙하하기 시작한 시점에 손을 떼었다고 가정.
   - y 방향 속도 값이 0 이하일 때 속도를 절반으로 줄이면 상승 속도가 아니라 낙하 속도가 절반 줄어듬 그래서 해당 조건 추가
-* OnCollisionEnter2D : 2D콜라이더를 사용하는 경우 OnTriggerEnter()의 2D버전인 OnCollisionEnter2D 메서드를 사용해야함.
 * Collision 타입에서 충돌 지점의 정보를 담는 contacts라는 변수[https://www.notion.so/Collision-contacts-0feab03419f94d868bc88aed43c46fa9]
 * Awake() : Start() 메서드처럼 초기 1회 자동 실행되는 유니티 이벤트 메서드지만, Start() 메서드보다 실행시점이 한 프레임 더 빠름
 * OnEnable() : Awake()나 Start() 같은 유니티 이벤트 메서드. Start() 메서드처럼 컴포넌트가 활성화될 때 자동으로 한 번 실행됨. 하지만 처음 한 번만 실행되는 Start() 메서드와 달리 해당 메서드는 컴포넌트가 활성화 될 때마다 매번 다시 실행됨. => 컴포넌트를 끄고 다시 켜는 방식으로 재실행가능
